@@ -1,1 +1,1 @@
-"# Vidaxa" 
+Vidaxa
