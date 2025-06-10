@@ -70,7 +70,7 @@ const getAllVideos = asyncHandler(async (req, res) => {
 })
 
 const publishVideo = asyncHandler(async (req, res) => {
-    const { title, description,owner} = req.body
+    const { title, description} = req.body
 
     if(!title){
       throw new ApiError(400,"title should not be empty")
