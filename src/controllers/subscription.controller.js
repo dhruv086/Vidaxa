@@ -11,7 +11,6 @@ import { subscriptions } from "../models/subscription.model.js";
 
 const toggleSubscription = asyncHandler(async (req, res) => {
   const {channelId} = req.params
-  // TODO: toggle subscription
 
   if(!channelId){
     throw new ApiError(400,"invalid channel id")
@@ -86,7 +85,6 @@ const getUserChannelSubscribers = asyncHandler(async (req, res) => {
   )
 })
 
-// controller to return channel list to which user has subscribed
 const getSubscribedChannels = asyncHandler(async (req, res) => {
   const  subscriberId  = req.user._id
 
