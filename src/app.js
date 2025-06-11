@@ -23,6 +23,7 @@ import playlistRouter from './routes/playlist.routes.js'
 import likeRouter from './routes/like.routes.js'
 import commentRouter from './routes/comment.routes.js'
 import communityPostRouter from './routes/communityPost.routes.js'
+import dashboardRouter from './routes/dashboard.routes.js'
 
 app.use("/api/v1/user",userRouter);
 app.use("/api/v1/video",videoRouter)
@@ -31,7 +32,7 @@ app.use("/api/v1/playlist",playlistRouter)
 app.use("/api/v1/like",likeRouter)
 app.use("/api/v1/comment",commentRouter)
 app.use("/api/v1/communitypost",communityPostRouter)
-
+app.use("/api/v1/dashboard",dashboardRouter)
 
 
 
