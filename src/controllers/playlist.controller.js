@@ -2,7 +2,8 @@ import mongoose, {isValidObjectId} from "mongoose"
 import { Playlist } from "../models/playlist.model.js"
 import { ApiError } from "../../utils/apiError.js"
 import { ApiResponse } from "../../utils/ApiResponse.js"
-import {asyncHandler} from "../utils/asyncHandler.js"
+import {asyncHandler} from "../../utils/asyncHandler.js"
+import { Video } from "../models/video.model.js"
 
 
 const createPlaylist = asyncHandler(async (req, res) => {
@@ -34,9 +35,9 @@ const createPlaylist = asyncHandler(async (req, res) => {
 })
 
 const getUserPlaylists = asyncHandler(async (req, res) => {
-    const {userId} = req.params
+    const userId = req.user._id
 
-    if(isValidObjectId(userId)){
+    if(!isValidObjectId(userId)){
       throw new ApiError(400,"invalid user id")
     }
 
@@ -89,7 +90,7 @@ const addVideoToPlaylist = asyncHandler(async (req, res) => {
       throw new ApiError(400,"playlist does not exist")
     }
 
-    const video = await Playlist.findById(videoId)
+    const video = await Video.findById(videoId)
     if(!video){
       throw new ApiError(400,"video does not exist")
     }
@@ -121,12 +122,12 @@ const removeVideoFromPlaylist = asyncHandler(async (req, res) => {
       throw new ApiError(400,"playlist does not exist")
     }
 
-    const video = await Playlist.findById(videoId)
+    const video = await Video.findById(videoId)
     if(!video){
       throw new ApiError(400,"video does not exist")
     }
 
-    if(playlist.videos.includes(videoId)){
+    if(!playlist.videos.includes(videoId)){
       throw new ApiError(400,"video is not in the plalist")
     }
 
