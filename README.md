@@ -13,6 +13,10 @@ Vidaxa is a video-sharing platform backend built with Node.js, Express, and Mong
 - **Community Posts**: Create, update, delete, and fetch posts.
 - **Dashboard**: Fetch channel statistics and videos.
 
+## Data Flow & Models
+
+- [View the Data Flow & Models Diagram](https://app.eraser.io/workspace/ezPmAq86wiJljVS4zBvS?origin=share)
+
 ## Installation
 
 1. Clone the repository:
@@ -33,7 +37,6 @@ Vidaxa is a video-sharing platform backend built with Node.js, Express, and Mong
    ```sh
    npm run dev
    ```
-
 
 ## Contributing
 
